@@ -1,0 +1,866 @@
+:root {
+    --background: #000000;
+    --primary-text: #EAEAEA;
+    --secondary-text: #B3B3B3;
+    --accent-1: #FF6F61;
+    --accent-2: #FFD700;
+    --border: #222222;
+    --interactive: #4CAF50;
+    --error: #FF5252;
+    --success: #64FFDA;
+    --htmlElement: #D22178;
+    --htmlClass: #B5CEA8;
+    --htmlQuote: #DCDCAA;
+    --htmlValue: #79C0FF;
+    --deepSlate: #121212;
+    --inter: 'Inter', sans-serif;
+    --poppins: 'Poppins', sans-serif;
+    --roboto: 'Roboto Mono', monospace;
+}
+.mobile-div {
+    display: none;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--primary-text);
+}
+
+html, body {
+    margin: 0; /* Remove any default margins */
+    scroll-behavior: smooth;
+    padding: 0; /* Remove default padding */
+    width: 100%; /* Ensure it covers the full width */
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    /* padding: 20px; */
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background: var(--background);
+    transition: background 0.3s ease;
+    box-sizing: border-box;
+    opacity: 95%;
+}
+
+footer {
+    padding: 10px;
+    background: var(--background);
+    color: var(--primary-text);
+    text-align: center;
+}
+.logo {
+    color: var(--primary-text);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: -1px -3px 4px var(--primary-text);
+    text-decoration: none;
+    transition: all 0.5s ease;
+    padding: 20px;
+}
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--primary-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.menus {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 25px;
+    align-items: center;
+}
+
+.menus.open {
+    display: flex;
+    max-height: 300px; /* Adjust based on content height */
+    padding: 20px;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: var(--primary-text);
+    transition: all 0.5s ease; /* Smooth transition for all properties */
+}
+
+.menu-item:hover {
+    color: var(--success);
+    transform: scale(1.1);
+    text-shadow: 1px 1px 1px var(--success);
+}
+
+.download_cv-btn {
+    border: 2px solid var(--success);
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-decoration: none; /* Ensure no underline */
+    display: inline-block; /* Makes it behave like a button */
+    text-align: center;
+    color: var(--success);
+}
+
+.download_cv-btn:hover {
+    border: 2px solid var(--success);
+    background: var(--success);
+    color: var(--background);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+}
+
+.home {
+    background: url('/assets/home_bg.jpg') no-repeat center center;
+    background-size: cover; /* Ensures the background image covers the entire div */
+    width: 100%; /* Makes the div take up the full width of its container */
+    height: 130vh; /* Makes the div take up more than the full viewport height */
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    flex-direction: column;
+    gap: 20px;
+}
+
+.full-name {
+    color: var(--primary-text);
+    text-align: center;
+    font-size: 4rem; /* Adjust size if needed */
+    font-weight: 700; /* Optional: make the text bold */
+    font-family: var(--poppins);
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 4px #f1e8e8;
+}
+
+.job-title {
+    color: var(--primary-text);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    display: flex; /* Allows the cursor to align correctly */
+    align-items: center;
+    font-family: var(--roboto);
+}
+
+.cursor {
+    border-left: 2px solid var(--primary-text); /* Creates the blinking cursor */
+    display: inline-block;
+    height: 1em; /* Matches the height of the text */
+    animation: blink 1s step-end infinite; /* Blinking effect */
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+    100% {
+        border-color: var(--primary-text);
+    }
+}
+
+.section-heading {
+    font-family: var(--poppins);
+    font-size: 5rem;
+    text-shadow: 2px 2px 2px var(--primary-text), -1px 1px 4px var(--primary-text);
+    opacity: 1;
+}
+
+.about-me {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+#about-me {
+    background-color: var(--deepSlate);
+    padding: 40px 0px;
+}
+
+.about-whole-description {
+    display: flex; 
+    flex-direction: column; 
+    flex: 1; 
+    align-items: flex-start;
+    padding-left: 60px;
+
+    opacity: 0; /* Start with invisible */
+    transform: translateX(-100px); /* Optional: Slight move for a smoother effect */
+    animation: none; /* Disable animation until triggered */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px); /* Optional for slide effect */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+.about-description {
+    flex: 1;
+    font-family: var(--roboto);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    font-weight: 400;
+    flex-direction: column;
+    display: flex;
+}
+
+.htmlElement {
+    letter-spacing: normal;
+    color: var(--htmlElement);
+}
+
+.htmlClass {
+    letter-spacing: normal;
+    color: var(--htmlClass);
+}
+
+.htmlQuote {
+    letter-spacing: normal;
+    color: var(--htmlQuote);
+}
+
+.htmlValue {
+    letter-spacing: normal;
+    color: var(--htmlValue);
+}
+.about-images {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap; /* Allows the images to wrap onto the next line */
+    justify-content: center; /* Centers the images horizontally */
+    gap: 10px; /* Adds space between the images */
+}
+
+.shane-image {
+    max-width: 70%; /* Ensures the image doesn't exceed its intended width */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures the image fills its container */
+    border: 2px solid var(--primary-text);
+    /* Add floating animation */
+    animation: float 3s ease-in-out infinite; /* 3 seconds per cycle */
+}
+
+/* Define the floating animation */
+@keyframes float {
+    0% {
+        transform: translateY(0); /* Start at original position */
+    }
+    50% {
+        transform: translateY(-10px); /* Move up slightly */
+    }
+    100% {
+        transform: translateY(0); /* Return to original position */
+    }
+}
+
+#skills {
+    background-color: var(--deepSlate);
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+/* Keyframes for fading and sliding in */
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px); /* Starts lower and fades in */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends at normal position */
+    }
+}
+
+
+/* Add a delay for each skill to create a staggered effect */
+
+.single-skill {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 calc(33.33% - 20px);
+    border: 1px solid;
+    box-sizing: border-box;
+    padding: 20px 40px;
+    animation: none;
+    opacity: 0; /* Ensure it's hidden initially */
+}
+
+.icon-title {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.icon-title i {
+    font-size: 4rem;
+}
+
+.skill-title {
+    text-transform: uppercase;
+    font-size: 1.75rem;
+    font-family: var(--roboto);
+    font-weight: 500;
+    text-align: left;
+}
+
+.skill-description {
+    text-align: left;
+    padding-top: 10px;
+    font-family: var(--roboto);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--secondary-text);
+}
+
+/* Accordion-Start */
+.accordion {
+    border-radius: 2px;
+    overflow: hidden;
+    width: calc(66% - 20px);
+}
+
+.accordion-item {
+    border: 1px solid #ffffff;
+    border-bottom: none; /* Prevent double borders between items */
+}
+
+.accordion-item:last-child {
+    border-bottom: 1px solid #ffffff; /* Add border to the last item */
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background: #1A1A1A;
+    border: 1px solid #1A1A1A;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    color: var(--primary-text);
+    font-family: var(--poppins);
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordion-header:hover {
+    background: #333333;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    background: #1A1A1A;
+    transition: max-height 0.3s ease;
+    border-top: 1px solid #1A1A1A; /* Ensure visible border with header */
+}
+
+/* Accordion-End */
+
+.work-experience {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 40px 0px;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.company_info {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.single_company_info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.company_info-text{
+    font-family: var(--poppins);
+    font-size: 1.1rem;
+    color: var(--secondary-text);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.tech_stack {
+    display: flex;
+    font-family: var(--poppins);
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.single_tech {
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: 2px solid var(--error);
+    color: var(--primary-text);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.company_description {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
+    align-items: center;
+}
+
+.work_description {
+    text-align: left;
+    color: var(--secondary-text);
+    line-height: 1.5rem;
+}
+
+.work_logo {
+    width: 100%;
+    height: 100%; 
+    object-fit: contain; 
+    max-width: 200px;
+    max-height: 200px;
+}
+
+#projects {
+    background-color: var(--deepSlate);
+    display: flex;
+    padding: 20px 40px;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px); /* Optional for slide effect */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.projects_list {
+    display: flex;
+    transition: transform 0.5s ease; /* Smooth slide transition */
+    width: 100%; /* Adjust as per your layout */
+}
+
+.project_item {
+    display: flex;
+    width: 100%; /* Adjust project size */
+    flex-direction: column;
+    flex-shrink: 0;
+    margin: 0 auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.project_image {
+    height: 550px;
+    object-fit: fill; /* Ensures the image stretches to fit */
+    display: block;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.project_description {
+    padding: 30px;
+    display: flex; /* Use flexbox to arrange children side by side */
+    justify-content: space-between; /* Distribute space between the flex items */
+    align-items: flex-start; /* Align items to the top */
+    background: var(--border);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    gap: 20px;
+}
+
+.project_title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    font-family: var(--poppins);
+}
+
+.project_description .tech_stack {
+    padding-bottom: 20px;
+}
+
+.project_description .single_tech {
+    border: 2px solid var(--accent-2);
+}
+
+.project_text {
+    font-size: 1rem;
+    font-family: var(--poppins);
+    color: var(--secondary-text);
+}
+
+.project_flex {
+    flex: 0 0 70%; /* Occupies 70% of the width */
+    display: flex;
+    flex-direction: column;
+}
+
+.project_small_descriptions {
+    flex: 0 0 30%; /* Occupies 30% of the width */
+    display: flex;
+    flex-wrap: wrap; /* Wrap tech items if necessary */
+    gap: 10px; /* Space between individual tech items */
+    align-content: space-between;
+}
+
+.carousel_wrapper {
+    display: flex; /* Place buttons and container in a row */
+    align-items: center; /* Vertically center-align the buttons with the carousel */
+    justify-content: center; /* Center the entire wrapper */
+    gap: 20px; /* Add spacing between buttons and the carousel */
+    width: 100%; /* Allow flexibility for the entire layout */
+}
+
+.carousel_container {
+    display: flex; /* Place buttons and container in a row */
+    align-items: center; /* Vertically center-align the buttons with the carousel */
+    justify-content: center; /* Center the entire wrapper */
+    width: 70%; /* Adjust carousel width */
+    overflow: hidden; /* Hide items outside of the viewable area */
+    position: relative; /* To allow any internal absolute positioning */
+}
+
+.carousel_button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    z-index: 10;
+    font-size: 1.1rem;
+    transition: all 0.5s ease;
+    font-weight: 700;
+}
+
+.carousel_button:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.carousel_button.prev {
+    left: 10px;
+}
+
+.carousel_button.next {
+    right: 10px;
+}
+
+#contact {
+    background-color: var(--deepSlate);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+#contact .section-heading{
+    font-size: 3rem;
+}
+
+.contact_flex {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+.contact_column {
+    flex: 50%;
+}
+.contact_description {
+    color: var(--secondary-text);
+    font-family: var(--poppins);
+}
+
+.contact_infos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.single_info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-decoration: none;
+}
+
+.info_icon {
+    color: var(--secondary-text);
+    font-size: 1.5rem;
+}
+
+.info_value {
+    color: var(--secondary-text);
+    font-size: 1rem;
+    font-family: var(--poppins);
+}
+
+@media only screen and (max-width: 768px) {
+    .menus {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        background: var(--deepSlate);
+        position: absolute;
+        top: 60px; /* Below the header */
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-height: 0; /* For animation */
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        box-sizing: border-box;
+        align-items: flex-start;
+    }
+
+    .menus.open {
+        max-height: 300px; /* Adjust based on content height */
+        box-sizing: border-box;
+    }
+
+    .menu-toggle {
+        display: block; /* Show toggle button on mobile */
+    }
+    .mobile-div {
+        display: block;
+    }
+    .section-heading {
+        font-size: 3rem;
+        line-height: 3.2rem;
+    }
+    .full-name {
+        font-size: 2.8rem;
+    }
+    .job-title {
+        font-size: 1.1rem;
+    }
+    #about-me {
+        padding: 40px 0px 0px 0px;
+    }
+    .about-me {
+        padding: 20px;
+        flex-direction: column-reverse;
+    }
+    .about-whole-description {
+        padding-top: 20px;
+        padding-left: 0px;
+    }
+    .about-whole-description .section-heading{
+        display: none;
+    }
+    .about-description {
+        font-size: 0.75rem;
+        letter-spacing: normal;
+        line-height: 1.5;
+    }
+    #skills {
+        padding: 20px;
+    }
+    .skills-list {
+        padding-top: 20px;
+        flex-direction: column;
+    }
+    .single-skill {
+        padding: 20px;
+    }
+    .icon-title {
+        gap: 20px;
+    }
+    .icon-title i {
+        font-size: 3rem;
+    }
+    .skill-title {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    .skill-description {
+        text-align: left;
+        padding-top: 10px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    .work-experience {
+        flex-direction: column-reverse;
+        margin-top: 0px;
+    }
+    .work-experience .section-heading {
+        font-size: 3rem !important;
+        line-height: 3.2rem !important;
+        text-align: center !important;
+    }
+    .accordion {
+        width: 100%;
+    }
+    .accordion-header {
+        width: 100%;
+        padding: 15px;
+        text-align: left;
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+    }
+    .company_info-text {
+        font-size: 0.75rem;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .tech_stack {
+        justify-content: center;
+    }
+    .single_tech {
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+    }
+    .company_description {
+        display: flex;
+        gap: 0px;
+        padding: 20px 0px;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+    .work_description {
+        text-align: center;
+        line-height: 1.2rem;
+        font-size: 0.9rem;
+    }
+    #projects {
+        background-color: var(--deepSlate);
+        display: flex;
+        padding: 20px 20px 0px 20px;
+        align-items: center;
+        flex-direction: column;
+        opacity: 0;
+    }
+    .carousel_wrapper {
+        padding-top: 20px;
+    }
+    .carousel_container {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    .carousel_button {
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        z-index: 10;
+        font-size: 0.6rem;
+        font-weight: 700;
+        transition: all 0.5s ease;
+    }
+    .project_image {
+        height: 300px;
+        object-fit:fill;
+        width: 100%;
+    }
+    .project_flex {
+        flex: 1;
+    }
+    .project_title {
+        font-size: 1.1rem;
+    }
+    .project_text {
+        font-size: 0.8rem;
+    }
+    .project_description {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .project_small_descriptions {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-content: space-between;
+        padding-bottom: 10px;
+    }
+    .project_description .tech_stack {
+        padding-bottom: 10px;
+    }
+    .contact_flex {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        padding: 40px 20px 20px 20px;
+    }
+    .contact_column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact_description {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    .contact_column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact_infos {
+        gap: 10px;
+    }
+    .info_value {
+        font-size: 0.8rem;
+    }
+}
